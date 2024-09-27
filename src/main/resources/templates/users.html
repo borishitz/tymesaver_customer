@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="headerLinks :: headerLinks"></head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+
+<div th:replace="navigation :: navigation "></div>
+
+    <div class="table-responsive custom-table-responsive">
+      <div th:switch="${users}">
+        <h2 th:case="null">
+            Sorry! you currently have no registered users.
+        </h2>
+        <div th:case="*">
+            <h2>All Users</h2>
+            <table class="table custom-table">
+            <thead>
+            <tr>
+
+              <th scope="col">
+                <label class="control control--checkbox">
+                  <input type="checkbox"  class="js-check-all"/>
+                  <div class="control__indicator"></div>
+                </label>
+              </th>
+
+              <th scope="col">FirstName</th>
+              <th scope="col">LastName</th>
+              <th scope="col">Email</th>
+              <th colspan="2" scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr scope="row" th:each="user : ${users}">
+              <th scope="row">
+                <label class="control control--checkbox">
+                  <input type="checkbox"/>
+                  <div class="control__indicator"></div>
+                </label>
+              </th>
+              <td>
+                [[${user.firstName}]]
+              </td>
+              <td>[[${user.lastName]]</td>
+              <td>
+                [[${user.Email]]
+              </td>
+              <td>
+                <a href="">Edit</a>
+              </td>
+              <td>
+                <a href="">Delete</a>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <a href="#" class="btn btn-primary" th:href="@{/registration/registration-form}">Add new user</a>
+      </div>
+    </div>
+
+<!--    this is the footer section -->
+<div th:replace="footer :: footer "></div>
+</body>
+</html>

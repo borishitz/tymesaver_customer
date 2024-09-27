@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="headerLinks :: headerLinks"></head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+<div th:replace="navigation :: navigation "></div>
+
+<section id="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="intro">
+                    <h6>Team</h6>
+                    <h1>Meet Our Team</h1>
+                    <p class="mx-auto">THE TEAM BEHIND NOAH'S ARK IMMUNOLOGY</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-8">
+                <div class="team-member">
+                    <div class="image">
+                        <img th:src="@{/img/Fergus Ambe.jpeg.jpg}" alt="">
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+                            <a href="#"><i class='bx bxl-instagram'></i></a>
+                            <a href="#"><i class='bx bxl-linkedin'></i></a>
+                        </div>
+                        <div class="overlay"></div>
+                    </div>
+
+                    <h5>Dr. Fergus Ambe A.
+                    </h5>
+                    <p>President and CEO</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8">
+                <div class="team-member">
+                    <div class="image">
+                        <img th:src="@{/img/user-normal.png}" alt="">
+                        <div class="social-icons">
+                            <a href="#"><i class='bx bxl-facebook'></i></a>
+                            <a href="#"><i class='bx bxl-twitter'></i></a>
+
+                            <a href="#"><i class='bx bxl-linkedin'></i></a>
+                        </div>
+                        <div class="overlay"></div>
+                    </div>
+
+                    <h5>Mr. Fouda Ndikintum</h5>
+                    <p>PRO</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--    this is the footer section -->
+<div th:replace="footer :: footer "></div>
+</body>
+</html>

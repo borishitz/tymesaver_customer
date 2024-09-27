@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+
+<!-- slider section -->
+<section style="min-height: 100vh;" class="slider_section hero_area">
+    <div class="container" style="height: 60vh;">
+        <div class="find_container ">
+            <div class="container">
+<!--                <div class="row">-->
+<!--                    <div class="col">-->
+<!--                        <h3 class="px-5 text-light">Create a new Product</h3>-->
+<!--                        <form th:action="@{/saveProduct}" method="post" th:object="${product}">-->
+<!--                            <div class="form-row px-5">-->
+<!--                                <div class="form-group form-group col-lg-12">-->
+<!--                                    <label class="text-light">Shop Name</label>-->
+<!--                                    <select th:field="*{shop}" class="form-control w-full" required>-->
+<!--                                        <th:block th:each="shop : ${shop}">-->
+<!--                                            <option th:text="${shop.shopName}" th:value="${shop.id}"/>-->
+<!--                                        </th:block>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                                <div class="form-group col-lg-12">-->
+<!--                                    <label class="text-light">Product Name</label>-->
+<!--                                    <input th:field="*{productName}" type="text" name="productName"  class="form-control" id="productName" placeholder="Enter the product name!">-->
+<!--                                </div>-->
+
+<!--                                <div class="form-group col-lg-12">-->
+<!--                                    <label class="text-light">Product Description</label>-->
+<!--                                    <textarea rows="10" th:field="*{productDescription}" type="productDescription" name="productDescription" class="form-control" id="productDescription">-->
+<!--                                      Enter the product name!-->
+<!--                                  </textarea>-->
+<!--                                </div>-->
+<!--                                <div class="form-group col-lg-12">-->
+<!--                                    <label class="text-light">Product Price</label>-->
+<!--                                    <input th:field="*{price}" type="number" name="productName"  class="form-control" id="price">-->
+<!--                                </div>-->
+<!--                                <div class="btn-box col-lg-12 pt-2">-->
+<!--                                    <button type="submit" class="btn w-100">Create</button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+
+                <form class="form-horizontal" th:action="@{/save-product}" method="post" th:object = "${productDto}"
+                          enctype="multipart/form-data">
+                        <fieldset>
+                            <!-- Form Name -->
+                            <legend>ADD NEW PRODUCT</legend>
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>
+                                <div class="col-md-4">
+                                    <input id="product_name" th:field = "*{name}" name="product_name" class="form-control input-md" required="" type="text">
+                                </div>
+                            </div>
+
+                            <!-- Select Basic -->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="product_categories">PRODUCT CATEGORY</label>
+                            <div class="col-md-4">
+                               <select id="product_categories" th:field = "*{category}" name="product_categories" class="form-control">
+                                   <option th:value = "null">-SELECT-</option>
+                                   <option th:each = "category : ${categories}"
+                                                th:value = "${category.id}"
+                                                th:text = "${category.name}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                            <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION</label>
+                            <div class="col-md-4">
+                                <input id="description" th:field = "*{description}" name="description" class="form-control input-md" required="" type="text">
+                            </div>
+                        </div>
+
+                            <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="available_quantity">AVAILABLE QUANTITY</label>
+                            <div class="col-md-4">
+                                <input id="available_quantity" th:field = "*{currentQuantity}" name="available_quantity" class="form-control input-md" required="" type="text">
+                            </div>
+                       </div>
+
+                            <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="price">PRICE</label>
+                            <div class="col-md-4">
+                                <input id="price" name="price" th:field = "*{costPrice}" class="form-control input-md" required="" type="text">
+                            </div>
+                        </div>
+                            <!-- Text input-->
+                        <div class="form-group">
+                            <div class="col-md-4">
+                                    <!-- File Button -->
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" for="image">PRODUCT IMAGE</label>
+                                    <div class="col-md-4">
+                                        <input id="image" name="imageProduct" class="input-file" type="file">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end slider section -->
+
+<div th:replace="footer :: footer"></div>

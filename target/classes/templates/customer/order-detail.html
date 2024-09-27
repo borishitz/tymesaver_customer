@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+<section class="job_section layout_padding" style="min-height: 100vh;">
+    <!-- Begin Page Content -->
+    <div class="container">
+
+        <!-- Start Cart  -->
+        <div class="cart-box-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-main table-responsive">
+                            <table class="table text-light">
+                                <thead>
+                                <tr>
+                                    <th>Images</th>
+                                    <th>Start Location</th>
+                                    <th>Destination</th>
+                                    <th>Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="orderdetail : ${order.orderDetailList}">
+                                    <td class="thumbnail-img">
+                                        <a href="#">
+                                            <img style="height: 80px;" class="img-fluid"
+                                                 th:src="'data:image/jepg;base64,' + ${orderdetail.trip.image}" alt=""/>
+                                        </a>
+                                    </td>
+                                    <td class="name-pr">
+                                        <p th:text="${orderdetail.trip.startLocation}"></p>
+                                    </td>
+                                    <td class="name-pr">
+                                        <p th:text="${orderdetail.trip.destination}"></p>
+                                    </td>
+                                    <td class="price-pr">
+                                        <p th:text="'$' + ${orderdetail.trip.costPrice}"></p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="row my-5">
+                                <div class="col-lg-8 col-sm-12"></div>
+                                <div class="col-lg-4 col-sm-12">
+                                    <div class="order-box">
+                                        <h3>Order summary</h3>
+                                        <div class="d-flex">
+                                            <p>Total Quantity [(${order.quantity})]</p>
+                                            <h4>Sub Total</h4>
+                                            <div class="ml-auto font-weight-bold" th:text="${order.totalPrice}"> </div>
+                                        </div>
+                                        <hr class="my-1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Cart -->
+
+    </div>
+</section>
+
+<div th:replace="footer :: footer"></div>

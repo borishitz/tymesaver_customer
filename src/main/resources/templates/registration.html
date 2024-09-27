@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="mainHeader :: mainHeader"></div>
+    <section class="job_section" style="height: 100vh;">
+    <!-- Outer Row -->
+        <div class="row justify-content-center">
+        <div class="container">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div style="" class="col-lg-4 d-none d-lg-block bg-login-image justify-content-center">
+                            <img style="width: 100%; padding-top: 60px; padding-left: 30px;" th:src="@{/img/diagram.gif}" alt="Community"/>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="p-5">
+                                <form th:action="@{/do-register}" th:object="${customerDto}" class="col-md-12 text-dark" method="post">
+                                    <div class="text-center">
+                                        <h3 class="ml-2">User Registration</h3>
+                                    </div>
+                                    <div class="input-form mt-2">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <label for="firstName" class="form-label">First name</label>
+                                                <input type="text" class="form-control" placeholder="Jon" id="firstName" th:field="*{firstName}"
+                                                       name="firstName" aria-describedby="emailHelp">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label for="lastName" class="form-label">Last name</label>
+                                                <input type="text" name="lastName" th:field="*{lastName}" class="form-control" placeholder="Doe" id="lastName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-form  mt-2">
+                                        <label for="username" class="form-label">Email</label>
+                                        <input type="text" name="username" th:field="*{username}" class="form-control" placeholder="Enter Your username" id="username">
+                                    </div>
+                                    <div class="input-form  mt-2">
+                                        <label class="form-label">Password!</label>
+                                        <input  type="password" name="password" th:field="*{password}" placeholder="******" class="form-control" id="password"/>
+                                    </div>
+                                    <div class="input-form mt-2">
+                                        <label class="form-label">Confirm Password! </label>
+                                        <input type="password"  class="form-control" placeholder="Verify password" name="confirm" th:field = "*{confirmPassword}" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block my-4">
+                                        Register
+                                    </button>
+                                    <div class="col-12 py-3">
+                                        <span class="my-4 text-center">Registered already? <a th:href="@{/login}">Login</a></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+<div th:replace="footer :: footer"></div>

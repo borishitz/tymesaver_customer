@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="headerLinks :: headerLinks"></head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+<div th:replace="navigation :: navigation "></div>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 py-5">
+                <div class="row">
+
+                    <div class="col-12 cls">
+                        <h2>Our Mission And Vision</h2>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="info-box">
+                            <img src="img/icon6.png" alt="">
+                            <div class="ms-4">
+                                <a class="deco" th:href="@{/cognition}"><h5>COGNITION</h5></a>
+                                <p>Cognition improvement in alzheimer's dementia and head trauma and chronic sinusitis.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <div class="info-box">
+                            <img src="img/icon4.png" alt="">
+                            <div class="ms-4">
+                                <a class="deco" th:href="@{/personality}"><h5>PERSONALITY</h5></a>
+                                <p>Personality development through ancestry genetic inheritance data.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <div class="info-box">
+                            <img src="img/icon5.png" alt="">
+                            <div class="ms-4">
+                                <a class="deco" th:href="@{/community}"><h5>COMMUNITY</h5></a>
+                                <p>Community research advancement, clinical trials and development in collaboration with the National Institute of Health, USA.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <img src="img/about.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--    this is the footer section -->
+<div th:replace="footer :: footer "></div>
+</body>
+</html>

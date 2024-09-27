@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<!--<div th:replace="header :: header"></div>-->
+<div th:replace="mainHeader :: mainHeader"></div>
+
+  <!-- category section -->
+  <div th:replace="category :: category"></div>
+  <!-- end category section -->
+
+      <section class="job_section" style="min-height: 50vh;">
+        <div class="container">
+          <div class="job_container">
+            <div class="row">
+              <div class="col-lg-6"  th:each="model:${trips}">
+                 <form th:action="@{/add-to-cart}" method="post">
+                      <div class="box">
+                        <div class="job_content-box">
+                          <div class="img-box">
+                            <img th:src="@{./images/bus-png-4.png}" alt="">
+                          </div>
+                          <div class="detail-box">
+                            <h6 class="row">
+                              <i class="fa-solid fa-bus mr-2"></i></i>
+<!--                              <span th:text="${model.TravelAgency.agencyName}">-->
+                                                                Washington. D.C.
+                                                            </span>
+                            </h6>
+                            <h5>
+                              From: <span th:text="${model.startLocation}"></span> to <span th:text="${model.destination}"></span>
+                            </h5>
+                            <div class="detail-info">
+                                                    <span class="mx-3">
+                                                        <span class="text-info">Bus No: </span>
+                                                        <span th:text="${model.busNumber}">
+                                                            $1200 - $1300
+                                                        </span>
+                                                    </span>
+                              <h6 class="mx-3">
+                                <i class="fa fa-money" aria-hidden="true"></i>
+                                <span th:text="${model.costPrice}">
+                                                                $1200 - $1300
+                                                            </span> Fcfa
+                              </h6>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row mt-3">
+                          <div class="col-6">
+                            <div class="option-box">
+                              <button class="fav-btn">
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                              </button>
+                              <!--                                    <a class="apply-btn"-->
+                              <!--                                       th:href="@{'/addToCartTrips/' + ${model.id}}">-->
+                              <!--                                        Add Ticket-->
+                              <!--                                    </a>-->
+                              <input type = "hidden" th:value = "${model.id}" name = "id" class = "form-control">
+                              <input type="submit" class="apply-btn" value="Add Ticket">
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="option-box">
+                              <button class="fav-btn">
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                              </button>
+                              <a class="apply-btn"
+                                 th:href="@{'/trip/detail/' + ${model.id}}">
+                                view
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                 </form>
+              </div>
+            </div>
+          </div>
+          <div class="btn-box">
+            <a href="">
+              View All
+            </a>
+          </div>
+        </div>
+      </section>
+<!-- end job section -->
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 info_links">
+          <h4>
+            Menu
+          </h4>
+          <ul>
+            <li class="active">
+              <a href="index.html">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="about.html">
+                About
+              </a>
+            </li>
+            <li>
+              <a class="" href="job.html">
+                Jobs
+              </a>
+            </li>
+            <li>
+              <a class="" href="freelancer.html">
+                Freelancers
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            Professionals
+          </h4>
+          <p>
+            Established fact that a reader will be distracted by the readable content of a page when looking at its
+            layout. The point of using Lorem Ipsum
+          </p>
+        </div>
+        <div class="col-md-3">
+          <div class="info_social">
+            <h4>
+              Social Link
+            </h4>
+            <div class="social_container">
+              <div>
+                <a href="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info_form">
+            <h4>
+              Newsletter
+            </h4>
+            <form action="">
+              <input type="text" placeholder="Enter Your Email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info_section -->
+
+<div th:replace="footer :: footer"></div>
